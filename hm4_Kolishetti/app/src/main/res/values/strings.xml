@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TheZoo</string>
+    <string name="animal_image">Image of an Animal</string>
+</resources>
