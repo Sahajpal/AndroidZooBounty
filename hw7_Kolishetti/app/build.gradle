@@ -6,7 +6,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.hw7_Kolishetti"
+        applicationId "com.example.hm7_Kolishetti"
         minSdk 19
         targetSdk 32
         versionCode 1
