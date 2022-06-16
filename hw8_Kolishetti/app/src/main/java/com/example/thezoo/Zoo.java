@@ -2,9 +2,11 @@ package com.example.thezoo;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -45,8 +47,7 @@ public class Zoo extends MainActivity{
         infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse(data[i].url);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                Intent intent = new Intent(Zoo.this, UserSettingActivity.class);
                 startActivity(intent);
             }
         });
@@ -64,8 +65,13 @@ public class Zoo extends MainActivity{
     }
 
     public void imageButtonHandler(View view){
-        mp = MediaPlayer.create(this, data[i].sound);
-        mp.start();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if(prefs.getBoolean("animalMusicPref", false)) {
+            mp = MediaPlayer.create(this, data[i].sound);
+            mp.start();
+        }
+
         Toast toast = Toast.makeText(getApplicationContext(),
                 data[i].toastMessage,
                 Toast.LENGTH_SHORT);

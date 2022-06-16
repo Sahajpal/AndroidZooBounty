@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "hm7_Kolishetti"
+rootProject.name = "hw8_Kolishetti"
 include ':app'
